@@ -18,6 +18,10 @@ h1 {
   color: white;
   font-size: 56px;
   letter-spacing: 5px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right, #A8E6A3, #32CD32, #006400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {

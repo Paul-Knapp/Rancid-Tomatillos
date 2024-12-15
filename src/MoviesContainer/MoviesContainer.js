@@ -1,9 +1,14 @@
 import './MoviesContainer.css';
+import MoviePoster from '../MoviePoster/MoviePoster';
+import movieDetails from '../data/movie_details';
+import moviePosters from '../data/movie_posters';
 
 function Movies() {
   return (
       <section className='MoviesContainer'>
-        <p>We'll make some movie posters show up here!</p>
+        {moviePosters.map((movie) => 
+        <MoviePoster key={movie.id} poster={movie}></MoviePoster>
+        )}
       </section>
   );
 }

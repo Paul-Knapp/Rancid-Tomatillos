@@ -24,9 +24,9 @@ function App() {
   return (
     <main className='App'>
       <header>
-        <h1>Rancid Tomatillos</h1>
-        <MoviesContainer movies={movies}></MoviesContainer>
+        <h1>rancid tomatillos</h1>
       </header>
+      <MoviesContainer movies={movies}></MoviesContainer>
     </main>
   );
 }

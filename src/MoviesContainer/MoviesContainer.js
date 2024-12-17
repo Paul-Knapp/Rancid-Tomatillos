@@ -2,8 +2,10 @@ import './MoviesContainer.css';
 import MoviePoster from '../MoviePoster/MoviePoster';
 import movieDetails from '../data/movie_details';
 import moviePosters from '../data/movie_posters';
+import { useState } from 'react';
 
 function Movies() {
+  
   return (
       <section className='MoviesContainer'>
         {moviePosters.map((movie) => (

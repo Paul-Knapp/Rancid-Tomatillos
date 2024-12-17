@@ -20,7 +20,7 @@ function MoviePoster({ poster }) {
     <section className='MoviePoster'>
       <div className="movie-poster-container">
         <img src={poster.poster_path} alt={`${poster.title}`} className="movie-poster" />
-        <div className="vote-count">{poster.vote_count}</div>
+        <div className="vote-count">{voteCount}</div>
         <div className="vote-buttons">
           <button className="upvote-button" onClick={increaseVote}>
             <img src={upvote} alt="U" img/>

@@ -18,3 +18,9 @@
   padding: 10px 0;
   font-weight: bold;
 }
+
+.vote-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

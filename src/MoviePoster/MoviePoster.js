@@ -3,9 +3,9 @@ import { useState } from 'react';
 import upvote from '../icons/upvote.png'
 import downvote from '../icons/downvote.png'
 
-function MoviePoster({ poster }) {
+function MoviePoster({ poster, handleMovieClick }) {
   const [voteCount, setVoteCount] = useState(poster.vote_count || 0)
-
+  
   function increaseVote() {
     setVoteCount(voteCount + 1)
     console.log(voteCount)
@@ -19,7 +19,7 @@ function MoviePoster({ poster }) {
   return (
     <section className='MoviePoster'>
       <div className="movie-poster-container">
-        <img src={poster.poster_path} alt={`${poster.title}`} className="movie-poster" />
+        <img src={poster.poster_path} alt={`${poster.title}`} className="movie-poster" onClick={()=> handleMovieClick(poster.id)} />
         <div className="vote-count">{voteCount}</div>
         <div className="vote-buttons">
           <button className="upvote-button" onClick={increaseVote}>

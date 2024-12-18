@@ -31,3 +31,8 @@ p {
   margin-top: 50px;
   color: white;
 }
+
+button {
+  color: orange;
+  width: 100px;
+}

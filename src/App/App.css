@@ -32,7 +32,7 @@ p {
   color: white;
 }
 
-.hidden {
-  visibility: hidden;
-  content-visibility: none;
+button {
+  color: orange;
+  width: 100px;
 }

@@ -1,24 +1,40 @@
 import './App.css';
 import searchIcon from '../icons/search.png';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import moviePosters from '../data/movie_posters';
 import movieDetails from '../data/movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails'
 
-
 function App() {
-  const [movies, setMovies] = useState(movieDetails);
-  const [selectedMovie, setSelectedMovie] = useState(null)
+  const [movies] = useState(movieDetails);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const handleMovieClick = (movieId) => {
+    {console.log(movieId)}
+    const selected = movies.find(movie => movie.id === movieId);
+    setSelectedMovie(selected);
+  };
+
+  const handleBackToMovies = () => {
+    setSelectedMovie(null);
+  };
 
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer  movies={movies}></MoviesContainer>
-      <MovieDetails movieDetails={MovieDetails}></MovieDetails>
+      {console.log("Currently selected movie", selectedMovie)}
+      {!selectedMovie ? (
+        <MoviesContainer movies={movies} onClick={handleMovieClick} />
+      ) : (
+        <div>
+          <MovieDetails movieDetails={selectedMovie} />
+          <button onClick={handleBackToMovies}>Back to Movies</button>
+        </div>
+      )}
     </main>
   );
 }

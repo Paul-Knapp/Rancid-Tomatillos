@@ -31,3 +31,8 @@ p {
   margin-top: 50px;
   color: white;
 }
+
+.hidden {
+  visibility: hidden;
+  content-visibility: none;
+}

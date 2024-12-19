@@ -2,7 +2,11 @@ import './MoviesContainer.css';
 import MoviePoster from '../MoviePoster/MoviePoster';
 import movieDetails from '../data/movie_details';
 import moviePosters from '../data/movie_posters';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+
+useEffect 
+
 
 function Movies({handleMovieClick}) {
   

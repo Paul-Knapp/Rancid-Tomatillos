@@ -2,8 +2,8 @@ import './App.css';
 import searchIcon from '../icons/search.png';
 
 import { useState } from 'react';
-import moviePosters from '../data/movie_posters';
-import movieDetails from '../data/movie_details';
+import moviePosters from '../movie_posters';
+import movieDetails from '../movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails'
 

@@ -10,7 +10,8 @@ function MovieDetails(selectedMovie) {
 
    
   function getMoviedetails() {
-    return fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${selectedMovie.id}`)
+    console.log(selectedMovie)
+    return fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${selectedMovie.movieDetails.id}`)
       .then(response => response.json())
       .then(data => {setdetails(data)})
       .catch(error => console.log(error))
@@ -21,10 +22,10 @@ function MovieDetails(selectedMovie) {
     <section className='MovieDetails'>
       <img src={movie_details.backdrop_path} alt={`${movie_details.title}`} className="movie-backdrop" />
       <h3 className="title"> {movie_details.title}</h3>
-      {/* <section className='Genres'>
+      <section className='Genres'>
         {movie_details.genre_ids.map((genre => <p>{genre}</p>)
         )}
-      </section> */}
+      </section>
       <p>{movie_details.overview}</p>
     </section>
   );

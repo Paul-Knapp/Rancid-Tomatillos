@@ -2,31 +2,31 @@ import './MovieDetails.css';
 import { useEffect, useState } from 'react';
 
 function MovieDetails(selectedMovie) {
- const [movie_details, setdetails] = useState([])
+  const [details, setdetails] = useState(null)
 
   useEffect( () =>{
-    getMoviedetails()
-  },[])
+      fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${selectedMovie.movieDetails.id}`)
+        .then(response => response.json())
+        .then(data => setdetails(data))
+        .catch(error => console.log(error))
+  
+  },[selectedMovie])
 
-   
-  function getMoviedetails() {
-    console.log(selectedMovie)
-    return fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${selectedMovie.movieDetails.id}`)
-      .then(response => response.json())
-      .then(data => {setdetails(data)})
-      .catch(error => console.log(error))
-    }
+  if (!details) {
+    return <p>Loading Movie Details...</p>
+  }
 
 
   return (
     <section className='MovieDetails'>
-      <img src={movie_details.backdrop_path} alt={`${movie_details.title}`} className="movie-backdrop" />
-      <h3 className="title"> {movie_details.title}</h3>
+      <img src={details.backdrop_path} alt={`${details.title}`} className="movie-backdrop" />
+      <h3 className="title"> {details.title}</h3>
+      {details.genre_ids.map((genre, value) => (
       <section className='Genres'>
-        {movie_details.genre_ids.map((genre => <p>{genre}</p>)
-        )}
+     <p>{genre}</p>
       </section>
-      <p>{movie_details.overview}</p>
+    ))}
+      <p>{details.overview}</p>
     </section>
   );
 }

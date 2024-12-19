@@ -5,7 +5,7 @@ import downvote from '../icons/downvote.png'
 
 function MoviePoster({ poster, handleMovieClick }) {
   const [voteCount, setVoteCount] = useState(poster.vote_count || 0)
-  
+
   function increaseVote() {
     setVoteCount(voteCount + 1)
     console.log(voteCount)

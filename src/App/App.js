@@ -35,7 +35,7 @@ function App() {
       ) : (
         <div>
           <MovieDetails movieDetails={selectedMovie} />
-          <button onClick={handleBackToMovies}>Back to Movies</button>
+          <button className='back-button' onClick={handleBackToMovies}>Back to Movies</button>
         </div>
       )}
     </main>

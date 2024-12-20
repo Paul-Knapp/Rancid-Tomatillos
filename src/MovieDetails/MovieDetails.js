@@ -51,7 +51,6 @@ function MovieDetails() {
             ))}
           </div>
           <p>{details.overview}</p>
-        <p>Average Rating: {details.average_rating}</p>
       <p>Release Date: {details.release_date}</p>
     </section>
   );

@@ -5,11 +5,8 @@
 describe('Rancid Tomatillos Main page', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies', { fixture: 'movie_posters.json'})
-
     cy.intercept('PATCH', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/155', { fixture: 'vote_up.json'})
     cy.intercept('PATCH', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/680', { fixture: 'vote_down.json'})
-    cy.intercept('Patch', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/155', { fixture: 'movie_posters.json'})
-    
     
     cy.visit('http://localhost:3000')
   })

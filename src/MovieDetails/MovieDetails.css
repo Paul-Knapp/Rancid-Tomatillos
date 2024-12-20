@@ -1,37 +1,54 @@
-.MovieDetails{
-
+.MovieDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #808080;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  font-family: 'Arial', sans-serif;
 }
 
 .movie-backdrop {
   width: 100%;
-  max-height: 500px;
-  object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+  object-fit: cover;
 }
 
 .title {
   font-size: 2rem;
-  margin: 1rem 0;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px;
   text-align: center;
-
 }
 
 .Genres {
   display: flex;
+  flex-direction: row;   /* Ensures items are in a row */
+  gap: 10px;             /* Adds space between the genres */
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  flex-wrap: nowrap;      /* Prevents wrapping */
+  margin-bottom: 15px;
+  width: 100%;            /* Ensures the container takes the full width */
 }
 
 .Genres p {
-  background-color: #000401;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  background-color: #B4E4E6;
+  color: #453D3D;
   font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-flex;   /* Ensures the <p> elements behave like inline flex items */
 }
 
 .MovieDetails p {
+  color: #000000;
   font-size: 1rem;
   line-height: 1.5;
+  text-align: center;
 }

@@ -1,5 +1,6 @@
 import './App.css';
 import searchIcon from '../icons/search.png';
+import homeIcon from '../icons/home.png'
 import { useEffect, useState, useCallback } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails'
@@ -95,7 +96,9 @@ function App() {
       ) : (
         <div>
           <MovieDetails movieDetails={selectedMovie} />
-          <button className='back-button' onClick={handleBackToMovies}>Back to Movies</button>
+          <button className='back-button' onClick={handleBackToMovies}>
+            <img src={homeIcon} alt="Search" className="back-icon" /> 
+            </button>
         </div>
       )}
     </main>

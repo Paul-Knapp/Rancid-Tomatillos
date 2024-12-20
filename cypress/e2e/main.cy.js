@@ -1,12 +1,38 @@
-// Mock data to use for testing:
-// import posters from '../fixtures/movie_posters.json' (we've added mock data to this file for you!)
+ import posters from '../fixtures/movie_posters.json' 
 // import details from '../fixtures/movie_details.json' (you will need to add your own mock data to this file!)
 
-describe('Main Page', () => {
-  it('displays title on page load', () => {
-    // hint: you'll want to add an intercept here if you are making a network request on page load!
-    cy.visit('http://localhost:3000/')
-    .get('h1')
-    .contains('rancid tomatillos')
+describe('Rancid Tomatillos Main page', () => {
+  beforeEach(() => {
+    cy.intercept('GET', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies', { fixture: 'movie_posters.json'})
+    cy.intercept('Patch', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/155', { fixture: 'movie_posters.json'})
+    
+
+    
+    cy.visit('http://localhost:3000')
   })
+
+  it('displays the application title', () => {
+  
+    cy.get('h1').should('contain', 'rancid tomatillos')
+  })
+
+  it('displays a collection of movies', () => {
+    cy.get('section').should('exist')
+    cy.get('.MoviePoster').should('have.length', 4)
+
+    cy.get('.MoviePoster').first().within(() => {
+      cy.get('img.movie-poster').should('be.visible')
+      cy.get('.vote-count').should('exist')
+      cy.get('.upvote-button').should('be.visible')
+      cy.get('.downvote-button').should('be.visible')
+    })
+
+    cy.get('.MoviePoster').last().within(() => {
+      cy.get('img.movie-poster').should('be.visible')
+      cy.get('.vote-count').should('exist')
+      cy.get('.upvote-button').should('be.visible')
+      cy.get('.downvote-button').should('be.visible')
+    })
+  })
+  
 })

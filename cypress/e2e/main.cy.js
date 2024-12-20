@@ -1,11 +1,15 @@
  import posters from '../fixtures/movie_posters.json' 
  import votes from '../fixtures/vote_up.json'
+// import details from '../fixtures/movie_details.json' (you will need to add your own mock data to this file!)
 
 describe('Rancid Tomatillos Main page', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies', { fixture: 'movie_posters.json'})
+
     cy.intercept('PATCH', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/155', { fixture: 'vote_up.json'})
     cy.intercept('PATCH', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/680', { fixture: 'vote_down.json'})
+    cy.intercept('Patch', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/155', { fixture: 'movie_posters.json'})
+    
     
     cy.visit('http://localhost:3000')
   })
@@ -32,6 +36,7 @@ describe('Rancid Tomatillos Main page', () => {
       cy.get('.upvote-button').should('be.visible')
       cy.get('.downvote-button').should('be.visible')
     })
+
   })
 
   it('can vote on posters', () => {
@@ -47,4 +52,5 @@ describe('Rancid Tomatillos Main page', () => {
       cy.get('.vote-count').contains('27641')
     })
   })
+  
 })

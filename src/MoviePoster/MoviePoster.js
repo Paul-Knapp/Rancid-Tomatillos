@@ -19,10 +19,10 @@ function MoviePoster({ poster, handleMovieClick, upVote, downVote }) {
         <div className="vote-count">{poster.vote_count}</div>
         <div className="vote-buttons">
           <button className="upvote-button" onClick={increaseVote}>
-            <img src={upvote} alt="U" />
+            <img src={upvote} alt="U" className="upvote-icon"/>
           </button>
           <button className="downvote-button" onClick={decreaseVote}>
-            <img src={downvote} alt="D" />
+            <img src={downvote} alt="D" className="downvote-icon"/>
           </button>
         </div>
       </div>

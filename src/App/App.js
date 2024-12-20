@@ -1,5 +1,4 @@
 import './App.css';
-import searchIcon from '../icons/search.png';
 import { useEffect, useState, useCallback } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails'
